@@ -14,7 +14,7 @@ FROM node:18-alpine3.14
 
 WORKDIR /app
 
-COPY --from=build /working/dist /app
+COPY --from=build /working/dist/src /app
 COPY --from=build /working/node_modules /app/node_modules
 
 EXPOSE 5000

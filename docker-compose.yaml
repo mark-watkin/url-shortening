@@ -8,20 +8,47 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-  
+    networks:
+      - "net1"
+
   ui:
     container_name: ui
     build: ./src/ui
-    ports:
-      - "3000:3000"
     environment:
       - VIRTUAL_HOST=pbid.localhost
+    networks:
+      - "net1"
 
   api:
     container_name: api
     build: ./src/api
-    ports:
-      - "5000:5000"
     environment:
       - VIRTUAL_HOST=api.pbid.localhost
       - PORT=5000
+      - DB_CONNECTION=mongodb://root:example@mongo:27017
+    networks:
+      - "net1"
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    command: ["--bind_ip_all"]
+    networks:
+      - "net1"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+      - ME_CONFIG_MONGODB_URL=mongodb://root:example@mongo:27017/
+      - VIRTUAL_HOST=db.pbid.localhost
+    networks:
+      - "net1"
+
+networks:
+  net1:

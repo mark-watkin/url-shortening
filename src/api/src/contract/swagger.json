@@ -1,0 +1,60 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "URL Shortening API",
+    "description": "An API to provide URL shortening functionality.",
+    "version": "1.0.0"
+  },
+  "host": "api.pbid.localhost",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/urls": {
+      "get": {
+        "summary": "Returns a list of previously saved urls.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of previously saved urls.",
+            "examples": {
+              "application/json": "[\n    {\n        \"id\": 1,\n        \"original\": \"https://pbid.io/hello/how/are/you\",\n        \"shortened\": \"https://pbid.io/6uuuuuuo\"\n    }\n]"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Returns a list of previously saved urls.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "original": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Created url.",
+            "examples": {
+              "application/json": "{\n    \"id\": 1,\n    \"original\": \"https://pbid.io/hello/how/are/you\",\n    \"shortened\": \"https://pbid.io/6uuuuuuo\"\n}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
