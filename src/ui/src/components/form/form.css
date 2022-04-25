@@ -1,0 +1,40 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+    .form {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.form-input {
+    padding: 12px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d7d7d7;
+    border-radius: 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgb(110, 110, 110);
+}
+
+.form-input-invalid-text {
+    font-size: 0.875rem;
+    line-height: 1.43;
+    color: #d73838
+}
+
+.form-input-invalid {
+    border-color: #d73838 !important;
+}

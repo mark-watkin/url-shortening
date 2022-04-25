@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when in error 1`] = `
+<div>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-input form-input-invalid"
+      name="url"
+      placeholder="Enter a url to shorten!"
+    />
+    <button
+      className="button"
+    >
+      Submit
+    </button>
+  </form>
+  <div
+    className="form-input-invalid-text"
+  >
+    The url that you have entered is not valid. Dont forget to include the protocol!
+  </div>
+</div>
+`;
+
+exports[`renders correctly when not in error 1`] = `
+<div>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-input "
+      name="url"
+      placeholder="Enter a url to shorten!"
+    />
+    <button
+      className="button"
+    >
+      Submit
+    </button>
+  </form>
+  <div
+    className="form-input-invalid-text"
+  />
+</div>
+`;

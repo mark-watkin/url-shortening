@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="list"
+>
+  <div
+    className="list-item"
+  >
+    <div
+      className="list-item-primary"
+    >
+      Primary
+    </div>
+    <div
+      className="list-item-secondary"
+    >
+      Secondary
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,28 @@
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    padding: 20px;
+    overflow-wrap: break-word;
+}
+
+.list > .list-item:not(:last-child) {
+    border-bottom: solid #D7D7D7;
+    border-width: 1px;
+}
+
+.list-item-primary {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #2a2a2a;
+}
+
+.list-item-secondary {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    color: #717070;
+}

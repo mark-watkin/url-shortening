@@ -7,7 +7,7 @@ To run this application you need docker installed on your machine and port 80 mu
 ## Running the application
 Clone the repository onto your local machine
 ```
-git clone git@github.com:mark-watkin/url-shortening
+git clone git@github.com:mark-watkin/url-shortening.git
 ```
 
 Build the docker containers:
@@ -52,5 +52,38 @@ We need to introduce additional randomness into our algorithm to make these shor
 
 The cost of introducing this additional randomness to our algorithm is that the first character is now used to introduce randomness, meaning we only have 7 characters to encode our auto incrementing ID. This reduces the number of urls that we can generate unique short codes for from 2.8 trillion down to 78 billion (78,364,164,096).
 
+## Local development
+The repo is split into two main projects the api and the ui.
+
+Each of these projects is set up to be developed against independently however they each make the assumption that their dependent services will be running in docker.
+
+Run the docker containers with the following:
+```
+docker compose up -d
+```
+
+The commands for running both the UI and API are consistent for simplicity.
+
+Install dependencies:
+```
+npm install
+```
+
+Run the application:
+```
+npm run dev
+```
+
+The application will rebuild as you update it.
+
+Run the tests:
+```
+npm run test
+```
+
 ## Future enhancements
-* Improve CORS controls - the current cors policy allows requests from all origins. Given more time I would restrict this to specific origins to ensure greater security of the application.
+* Continuous delivery ready - If I had more time I would add a single end to end test to provide additional confidence that all components integrate correctly. Once this additional test is part of the release pipeline I would be confident in setting this project up for continuous delivay. 
+
+* Improve CORS controls - The current cors policy allows requests from all origins. Given more time I would restrict this to specific origins to ensure greater security of the application.
+
+* Monitoring & logging - I left logging and monitoring and tracking out of scope for this application, but for it to be truely production ready I would look to add metrics, tracking and additional logging to give the development and product team greater visibility into how the application is running.
